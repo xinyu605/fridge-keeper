@@ -10,11 +10,17 @@ const roboto = Roboto({
 
 export const lightTheme = createTheme({
   palette: {
-    ochre: {
-      main: '#E3D026',
-      light: '#E9DB5D',
-      dark: '#A29415',
-      contrastText: '#242105',
+    primary: {
+      main: '#FACC15' /** Tailwind class: yellow-400 */,
+      dark: '#854D0E' /** Tailwind class: yellow-800 */,
+      light: '#fef9c3' /**Tailwind class: yellow-100 */,
+      contrastText: '#fff',
+    },
+    secondary: {
+      main: '#06b6d4' /** Tailwind class: cyan-500 */,
+      light: '#7dd3fc' /** Tailwind class: sky-300 */,
+      dark: '#075985' /** Tailwind class: sky-800 */,
+      contrastText: '#fff',
     },
   },
   typography: {
@@ -23,8 +29,15 @@ export const lightTheme = createTheme({
 });
 
 export const darkTheme = createTheme({
+  ...lightTheme,
   palette: {
     ...lightTheme.palette,
     mode: 'dark',
+    primary: {
+      main: '#fde047' /** Tailwind class: yellow-300 */,
+      dark: '#fef9c3' /**Tailwind class: yellow-100 */,
+      light: '#a16207' /** Tailwind class: yellow-700 */,
+      contrastText: '#fff',
+    },
   },
 });
