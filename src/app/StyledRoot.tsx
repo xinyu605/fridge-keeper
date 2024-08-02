@@ -25,11 +25,13 @@ const StyledRoot: FC<StyledRootProps> = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <main className="flex flex-col min-h-screen">
-        {/* TODO: implement AppBar */}
-        <ThemeModeSwitch value={mode} onChange={handleChangeMode} />
-        {children}
-      </main>
+      <body className={mode === 'dark' ? 'dark' : undefined}>
+        <main className="flex flex-col min-h-screen bg-slate-400 dark:bg-slate-800">
+          {/* TODO: implement AppBar */}
+          <ThemeModeSwitch value={mode} onChange={handleChangeMode} />
+          {children}
+        </main>
+      </body>
     </ThemeProvider>
   );
 };

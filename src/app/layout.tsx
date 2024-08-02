@@ -16,11 +16,9 @@ interface RootLayoutProps extends Readonly<{ children: ReactNode }> {}
 
 const RootLayout: FC<RootLayoutProps> = ({ children }) => (
   <html lang="en">
-    <body>
-      <AppRouterCacheProvider>
-        <StyledRoot>{children}</StyledRoot>
-      </AppRouterCacheProvider>
-    </body>
+    <AppRouterCacheProvider>
+      <StyledRoot>{children}</StyledRoot>
+    </AppRouterCacheProvider>
   </html>
 );
 
