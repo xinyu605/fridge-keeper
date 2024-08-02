@@ -7,10 +7,13 @@ import { ThemeProvider } from '@mui/material/styles';
 import { darkTheme, lightTheme } from '@/styles/theme';
 
 import MainNav from '@/modules/MainNav';
+import { LngRouteProps } from '@/types/page';
 
-interface StyledRootProps extends Readonly<{ children: ReactNode }> {}
+interface StyledRootProps
+  extends Readonly<{ children: ReactNode }>,
+    LngRouteProps {}
 
-const StyledRoot: FC<StyledRootProps> = ({ children }) => {
+const StyledRoot: FC<StyledRootProps> = ({ children, params }) => {
   const [mode, setMode] = useState<PaletteMode>('light');
 
   const theme = useMemo(
@@ -27,7 +30,7 @@ const StyledRoot: FC<StyledRootProps> = ({ children }) => {
       <CssBaseline />
       <body className={mode === 'dark' ? 'dark' : undefined}>
         <main className="flex flex-col min-h-screen bg-slate-100 dark:bg-slate-700">
-          <MainNav mode={mode} onChange={handleChangeMode} />
+          <MainNav params={params} mode={mode} onChange={handleChangeMode} />
           {children}
         </main>
       </body>
