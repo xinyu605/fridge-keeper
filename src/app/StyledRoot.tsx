@@ -1,7 +1,7 @@
 'use client';
 import { type FC, type ReactNode, useMemo, useState } from 'react';
 
-import { CssBaseline, type PaletteMode } from '@mui/material';
+import { AppBar, CssBaseline, Toolbar, type PaletteMode } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 
 import { darkTheme, lightTheme } from '@/styles/theme';
@@ -26,9 +26,17 @@ const StyledRoot: FC<StyledRootProps> = ({ children }) => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <body className={mode === 'dark' ? 'dark' : undefined}>
-        <main className="flex flex-col min-h-screen bg-slate-400 dark:bg-slate-800">
-          {/* TODO: implement AppBar */}
-          <ThemeModeSwitch value={mode} onChange={handleChangeMode} />
+        <main className="flex flex-col min-h-screen bg-slate-100 dark:bg-slate-700">
+          <AppBar position="fixed" color="secondary">
+            <Toolbar
+              variant="dense"
+              className="flex justify-end bg-white dark:bg-gray-700"
+            >
+              <div>
+                <ThemeModeSwitch value={mode} onChange={handleChangeMode} />
+              </div>
+            </Toolbar>
+          </AppBar>
           {children}
         </main>
       </body>

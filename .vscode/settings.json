@@ -26,5 +26,9 @@
     "typescriptreact"
   ],
   "prettier.prettierPath": "./node_modules/prettier/index.cjs",
-  "typescript.tsdk": "./node_modules/typescript/lib"
+  "typescript.tsdk": "./node_modules/typescript/lib",
+  "workbench.colorCustomizations": {
+    "editorCursor.foreground": "#FDA4AF",
+    "terminalCursor.foreground": "#7DD3FC"
+  }
 }

@@ -28,7 +28,7 @@ const ThemeModeSwitch: FC<ThemeModeSwitchProps> = ({ value, onChange }) => {
         padding: 0,
 
         '& .MuiSwitch-switchBase': {
-          color: 'ochre.main',
+          color: 'primary.main',
           padding: 0,
           margin: 0.375,
           transitionDuration: '300ms',
@@ -39,7 +39,7 @@ const ThemeModeSwitch: FC<ThemeModeSwitchProps> = ({ value, onChange }) => {
 
             '& + .MuiSwitch-track': {
               border: 0,
-              backgroundColor: 'ochre.main',
+              backgroundColor: 'primary.main',
               opacity: 1,
             },
 
