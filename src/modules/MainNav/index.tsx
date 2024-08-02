@@ -11,22 +11,19 @@ interface MainNavProps {
   onChange: (value: PaletteMode) => void;
 }
 
-const MainNav: FC<MainNavProps> = ({ mode, onChange }) => {
-  console.log(mode);
-  return (
-    <AppBar position="fixed" color="secondary">
-      <Toolbar
-        variant="dense"
-        className="flex justify-end bg-white dark:bg-gray-700"
-      >
-        <div className="flex gap-2 items-center">
-          <ThemeModeSwitch value={mode} onChange={onChange} />
-          {/* TODO: replace with i18n t function */}
-          <Button>LOGIN</Button>
-        </div>
-      </Toolbar>
-    </AppBar>
-  );
-};
+const MainNav: FC<MainNavProps> = ({ mode, onChange }) => (
+  <AppBar position="fixed" color="inherit">
+    <Toolbar
+      variant="dense"
+      className="flex justify-end bg-white dark:bg-gray-700"
+    >
+      <div className="flex gap-2 items-center">
+        <ThemeModeSwitch value={mode} onChange={onChange} />
+        {/* TODO: replace with i18n t function */}
+        <Button>LOGIN</Button>
+      </div>
+    </Toolbar>
+  </AppBar>
+);
 
 export default MainNav;
