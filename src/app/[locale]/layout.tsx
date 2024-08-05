@@ -1,11 +1,11 @@
-import { type ReactNode } from 'react';
 import { type Metadata } from 'next';
+import { type ReactNode } from 'react';
 
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 
 import '@/styles/globals.css';
-import initTranslations from '@/lib/i18n';
 import { type ServerFC } from '@/lib/types';
+import initTranslations from '@/lib/i18n';
 
 import StyledRoot from '@/app/[locale]/StyledRoot';
 import TransProvider from '@/modules/TransProvider';
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description: 'keep your fridge always clean and fresh!',
 };
 
-const i18nNameSpaces = ['home'];
+const i18nNameSpaces = ['common', 'home'];
 
 interface RootLayoutProps extends Readonly<{ children: ReactNode }> {}
 

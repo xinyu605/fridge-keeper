@@ -1,11 +1,11 @@
-import { createInstance, type i18n, type Resource } from 'i18next';
+import { type Resource, createInstance, type i18n } from 'i18next';
 import { initReactI18next } from 'react-i18next/initReactI18next';
 import resourcesToBackend from 'i18next-resources-to-backend';
 
 import i18nConfig from '@/i18nConfig';
 
 type Locale = 'en' | 'zh' | 'ja';
-type NameSpace = 'home';
+type NameSpace = 'common' | 'home';
 
 const initTranslations = async (
   locale: string,
