@@ -13,7 +13,11 @@ yarn run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Links
+## Reference
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Next.js Documentation](https://nextjs.org/docs) - Learn about Next.js features and API
+- [Learn Next.js](https://nextjs.org/learn) - An interactive Next.js tutorial
+- [I18nexus](https://i18nexus.com/) - An i18n library including i18next and seamlessly integrate with Next.js
+- [Next.js App Router with i18next](https://i18nexus.com/tutorials/nextjs/react-i18next) - A complete guide for setting up react-i18next with the App Router
+- [MUI Core](https://mui.com/core/) - Foundational UI components and utilities for design system
+- [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework which can be composed to build any design, directly in markup
