@@ -1,1 +1,10 @@
-{"login":"LOGIN","title":"Fridge Keeper"}
+{
+  "email": "Email",
+  "login": "LOGIN",
+  "password": "Password",
+  "title": "Fridge Keeper",
+  "validation": {
+    "email": "Invalid Email format.",
+    "password": "Password must contain at least 8 characters."
+  }
+}

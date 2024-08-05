@@ -2,17 +2,15 @@
 import { type FC, type ReactNode, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import {
-  AppBar,
-  Button,
-  CssBaseline,
-  Toolbar,
-  type PaletteMode,
-} from '@mui/material';
+import { CssBaseline, type PaletteMode } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
+import AppBar from '@mui/material/AppBar';
+import Button from '@mui/material/Button';
+import Toolbar from '@mui/material/Toolbar';
 
 import { darkTheme, lightTheme } from '@/styles/theme';
 
+import LoginDialog from '@/modules/LoginDialog';
 import ThemeModeSwitch from '@/modules/ThemeSwitch';
 
 interface StyledRootProps extends Readonly<{ children: ReactNode }> {}
@@ -31,6 +29,16 @@ const StyledRoot: FC<StyledRootProps> = ({ children }) => {
     setMode((prev) => (prev === 'light' ? 'dark' : 'light'));
   };
 
+  const [openLoginDialog, setOpenLoginDialog] = useState(false);
+
+  const handleOpenLoginDialog = () => {
+    setOpenLoginDialog(true);
+  };
+
+  const handleCloseLoginDialog = () => {
+    setOpenLoginDialog(false);
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -43,11 +51,14 @@ const StyledRoot: FC<StyledRootProps> = ({ children }) => {
             >
               <div className="flex gap-2 items-center">
                 <ThemeModeSwitch value={mode} onChange={handleChangeMode} />
-                <Button>{t('home:login')}</Button>
+                <Button onClick={handleOpenLoginDialog}>
+                  {t('home:login')}
+                </Button>
               </div>
             </Toolbar>
           </AppBar>
           {children}
+          {openLoginDialog && <LoginDialog onClose={handleCloseLoginDialog} />}
         </main>
       </body>
     </ThemeProvider>
