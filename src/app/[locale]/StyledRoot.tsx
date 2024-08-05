@@ -1,5 +1,6 @@
 'use client';
 import { type FC, type ReactNode, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import {
   AppBar,
@@ -17,6 +18,8 @@ import ThemeModeSwitch from '@/modules/ThemeSwitch';
 interface StyledRootProps extends Readonly<{ children: ReactNode }> {}
 
 const StyledRoot: FC<StyledRootProps> = ({ children }) => {
+  const { t } = useTranslation(['home']);
+
   const [mode, setMode] = useState<PaletteMode>('light');
 
   const theme = useMemo(
@@ -40,8 +43,7 @@ const StyledRoot: FC<StyledRootProps> = ({ children }) => {
             >
               <div className="flex gap-2 items-center">
                 <ThemeModeSwitch value={mode} onChange={handleChangeMode} />
-                {/* TODO: replace with i18n t function */}
-                <Button>LOGIN</Button>
+                <Button>{t('home:login')}</Button>
               </div>
             </Toolbar>
           </AppBar>
