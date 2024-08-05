@@ -5,7 +5,7 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 
 import '@/styles/globals.css';
 
-import StyledRoot from '@/app/StyledRoot';
+import StyledRoot from '@/app/[locale]/StyledRoot';
 
 export const metadata: Metadata = {
   title: 'Fridge Keeper',

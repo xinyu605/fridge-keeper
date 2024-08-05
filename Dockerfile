@@ -4,6 +4,8 @@ WORKDIR /app
 COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
 COPY . .
+COPY entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
 RUN yarn run build
 
 FROM node:20-alpine
@@ -12,4 +14,4 @@ COPY --from=build /app /app
 
 EXPOSE 3000
 
-CMD ["yarn", "run", "dev"]
+CMD ["sh", "/app/entrypoint.sh"]
