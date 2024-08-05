@@ -21,3 +21,5 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - [Next.js App Router with i18next](https://i18nexus.com/tutorials/nextjs/react-i18next) - A complete guide for setting up react-i18next with the App Router
 - [MUI Core](https://mui.com/core/) - Foundational UI components and utilities for design system
 - [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework which can be composed to build any design, directly in markup
+- [React Hook Form](https://react-hook-form.com/) - Performant, flexible and extensible forms with easy-to-use validation
+- [Zod](https://zod.dev) - TypeScript-first schema validation with static type inference
