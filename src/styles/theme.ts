@@ -26,6 +26,15 @@ export const lightTheme = createTheme({
   typography: {
     fontFamily: roboto.style.fontFamily,
   },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          boxShadow: 'none',
+        },
+      },
+    },
+  },
 });
 
 export const darkTheme = createTheme({
@@ -33,11 +42,19 @@ export const darkTheme = createTheme({
   palette: {
     ...lightTheme.palette,
     mode: 'dark',
+    background: {
+      ...lightTheme.palette.background,
+      paper: '#3f4739',
+    },
     primary: {
       main: '#fde047' /** Tailwind class: yellow-300 */,
       dark: '#fef9c3' /**Tailwind class: yellow-100 */,
       light: '#a16207' /** Tailwind class: yellow-700 */,
       contrastText: '#fff',
+    },
+    text: {
+      ...lightTheme.palette.text,
+      primary: '#fff',
     },
   },
 });

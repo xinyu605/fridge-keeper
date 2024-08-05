@@ -1,1 +1,10 @@
-{"login":"登入","title":"冰箱管家"}
+{
+  "email": "Email",
+  "login": "登入",
+  "password": "密碼",
+  "title": "冰箱管家",
+  "validation": {
+    "email": "無效的 Email 格式",
+    "password": "密碼必須包含至少 8 個字元"
+  }
+}
