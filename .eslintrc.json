@@ -1,6 +1,8 @@
 {
   "extends": ["next/core-web-vitals"],
+  "plugins": ["sort-imports-es6-autofix"],
   "rules": {
-    "arrow-body-style": "error"
+    "arrow-body-style": "error",
+    "sort-imports-es6-autofix/sort-imports-es6": "error"
   }
 }
