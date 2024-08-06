@@ -5,12 +5,14 @@ import { useTranslation } from 'react-i18next';
 import { CssBaseline, type PaletteMode } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Toolbar from '@mui/material/Toolbar';
 
 import { darkTheme, lightTheme } from '@/styles/theme';
 
-import LoginDialog from '@/modules/LoginDialog';
+import { type AuthDialogType } from '@/modules/AuthDialog/AuthDialog.type';
+import AuthDialog from '@/modules/AuthDialog/AuthDialog';
 import Snackbar from '@/modules/Snackbar';
 import ThemeModeSwitch from '@/modules/ThemeSwitch';
 
@@ -30,14 +32,20 @@ const StyledRoot: FC<StyledRootProps> = ({ children }) => {
     setMode((prev) => (prev === 'light' ? 'dark' : 'light'));
   };
 
-  const [openLoginDialog, setOpenLoginDialog] = useState(false);
+  const [authDialogType, setAuthDialogType] = useState<AuthDialogType | null>(
+    null
+  );
 
-  const handleOpenLoginDialog = () => {
-    setOpenLoginDialog(true);
+  const handleOpenSignInDialog = () => {
+    setAuthDialogType('signIn');
   };
 
-  const handleCloseLoginDialog = () => {
-    setOpenLoginDialog(false);
+  const handleOpenSignUpDialog = () => {
+    setAuthDialogType('signUp');
+  };
+
+  const handleCloseAuthDialog = () => {
+    setAuthDialogType(null);
   };
 
   return (
@@ -50,16 +58,26 @@ const StyledRoot: FC<StyledRootProps> = ({ children }) => {
               variant="dense"
               className="flex justify-end bg-white dark:bg-gray-700"
             >
-              <div className="flex gap-2 items-center">
+              <Box
+                display="flex"
+                gap={2}
+                alignItems="center"
+                justifyContent="center"
+              >
                 <ThemeModeSwitch value={mode} onChange={handleChangeMode} />
-                <Button onClick={handleOpenLoginDialog}>
+                <Button variant="contained" onClick={handleOpenSignInDialog}>
                   {t('home:signIn')}
                 </Button>
-              </div>
+                <Button variant="outlined" onClick={handleOpenSignUpDialog}>
+                  {t('home:signUp')}
+                </Button>
+              </Box>
             </Toolbar>
           </AppBar>
           {children}
-          {openLoginDialog && <LoginDialog onClose={handleCloseLoginDialog} />}
+          {authDialogType && (
+            <AuthDialog type={authDialogType} onClose={handleCloseAuthDialog} />
+          )}
           <Snackbar />
         </main>
       </body>

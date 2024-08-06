@@ -1,7 +1,6 @@
 'use client';
 
 import * as z from 'zod';
-import { AuthErrorCodes } from 'firebase/auth';
 import { type FC, type FormEvent, useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
@@ -10,21 +9,21 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
-import { FirebaseError } from 'firebase/app';
 import {
-  type LoginDialogProps,
-  LoginFormData,
-} from '@/modules/LoginDialog/LoginDialog.type';
-import { signIn } from '@/firebase/auth';
-import { useSnackbarAtom } from '@/stores/atoms/snackbar';
+  type AuthDialogBaseProps,
+  type AuthFormData,
+} from '@/modules/AuthDialog/AuthDialog.type';
 
 import SimpleDialog from '@/modules/SimpleDialog';
 
-const LoginDialog: FC<LoginDialogProps> = ({ onClose }) => {
+const AuthDialogBase: FC<AuthDialogBaseProps> = ({
+  title,
+  onClose,
+  onConfirm,
+}) => {
   const { t } = useTranslation(['common', 'home']);
-  const { showSnackbar } = useSnackbarAtom();
 
-  const loginSchema = useMemo(
+  const authSchema = useMemo(
     () =>
       z.object({
         email: z.string().email({ message: t('home:validation.email') }),
@@ -37,33 +36,17 @@ const LoginDialog: FC<LoginDialogProps> = ({ onClose }) => {
     formState: { errors, isValid },
     handleSubmit,
     register,
-  } = useForm<LoginFormData>({
+  } = useForm<AuthFormData>({
     mode: 'onChange',
     defaultValues: {
       email: '',
       password: '',
     },
-    resolver: zodResolver(loginSchema),
+    resolver: zodResolver(authSchema),
   });
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
-    void handleSubmit(async ({ email, password }) => {
-      try {
-        await signIn(email, password);
-        showSnackbar({
-          message: t('home:validation.signInSuccessfully'),
-        });
-      } catch (err) {
-        showSnackbar({
-          severity: 'error',
-          message:
-            err instanceof FirebaseError &&
-            err.code === AuthErrorCodes.INVALID_LOGIN_CREDENTIALS
-              ? t('home:validation.invalidLoginCredentials')
-              : t('common:validation.unknownError'),
-        });
-      }
-    })(event);
+    void handleSubmit(onConfirm)(event);
   };
 
   return (
@@ -71,11 +54,11 @@ const LoginDialog: FC<LoginDialogProps> = ({ onClose }) => {
       disabledSubmit={!isValid}
       form
       open
-      title={t('home:signIn')}
+      title={title}
       onClose={onClose}
       onSubmit={onSubmit}
     >
-      <Box display={'flex'} flexDirection={'column'} gap={3}>
+      <Box display="flex" flexDirection="column" gap={3}>
         <TextField
           {...register('email')}
           error={!!errors.email}
@@ -95,4 +78,4 @@ const LoginDialog: FC<LoginDialogProps> = ({ onClose }) => {
   );
 };
 
-export default LoginDialog;
+export default AuthDialogBase;
