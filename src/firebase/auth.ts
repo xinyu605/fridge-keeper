@@ -3,7 +3,7 @@ import {
   getAuth,
   signInWithEmailAndPassword,
 } from 'firebase/auth';
-import firebaseApp from '@/firebase/config';
+import firebaseApp from '@/firebaseConfig';
 
 const auth = getAuth(firebaseApp);
 
