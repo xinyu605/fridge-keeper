@@ -19,6 +19,7 @@
     "@mui/icons-material": "^5.16.6",
     "@mui/material": "^5.16.6",
     "@mui/material-nextjs": "^5.16.6",
+    "firebase": "^10.12.5",
     "i18next": "^23.12.2",
     "i18next-resources-to-backend": "^1.2.1",
     "next": "14.2.5",
