@@ -2,11 +2,14 @@
   "email": "Email",
   "password": "密碼",
   "signIn": "登入",
+  "signUp": "註冊",
   "title": "冰箱管家",
   "validation": {
     "email": "無效的 Email 格式",
+    "emailExist": "Email 已經存在。",
     "invalidLoginCredentials": "登入失敗！無效的 email 或密碼。",
     "password": "密碼必須包含至少 8 個字元",
-    "signInSuccessfully": "登入成功！"
+    "signInSuccessfully": "登入成功！",
+    "signUpSuccessfully": "註冊成功！"
   }
 }
