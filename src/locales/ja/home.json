@@ -1,12 +1,12 @@
 {
   "email": "Eメール",
-  "login": "ログイン",
   "password": "パスワード",
+  "signIn": "サインイン",
   "title": "冷蔵庫キーパー",
   "validation": {
     "email": "電子メールの形式が無効です。",
-    "invalidLoginCredentials": "ログインに失敗しました。メールアドレスまたはパスワードが無効です。",
-    "loginSuccessfully": "ログインに成功しました!",
-    "password": "パスワードには少なくとも 8 文字を含める必要があります。"
+    "invalidLoginCredentials": "サインインに失敗しました。メールアドレスまたはパスワードが無効です。",
+    "password": "パスワードには少なくとも 8 文字を含める必要があります。",
+    "signInSuccessfully": "サインインに成功しました!"
   }
 }

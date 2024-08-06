@@ -1,12 +1,12 @@
 {
   "email": "Email",
-  "login": "LOGIN",
   "password": "Password",
+  "signIn": "Sign In",
   "title": "Fridge Keeper",
   "validation": {
     "email": "Invalid Email format.",
-    "invalidLoginCredentials": "Failed to log in! Invalid email or password.",
-    "loginSuccessfully": "Login successfully!",
-    "password": "Password must contain at least 8 characters."
+    "invalidLoginCredentials": "Failed to sign in! Invalid email or password.",
+    "password": "Password must contain at least 8 characters.",
+    "signInSuccessfully": "Sign in successfully!"
   }
 }
