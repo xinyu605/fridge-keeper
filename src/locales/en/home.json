@@ -5,6 +5,8 @@
   "title": "Fridge Keeper",
   "validation": {
     "email": "Invalid Email format.",
+    "invalidLoginCredentials": "Failed to log in! Invalid email or password.",
+    "loginSuccessfully": "Login successfully!",
     "password": "Password must contain at least 8 characters."
   }
 }

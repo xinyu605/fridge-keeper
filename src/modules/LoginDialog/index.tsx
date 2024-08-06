@@ -9,15 +9,19 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
+import { AuthErrorCode, signIn } from '@/firebase/auth';
+import { FirebaseError } from 'firebase/app';
 import {
   type LoginDialogProps,
   LoginFormData,
 } from '@/modules/LoginDialog/LoginDialog.type';
+import { useSnackbarAtom } from '@/stores/atoms/snackbar';
 
 import SimpleDialog from '@/modules/SimpleDialog';
 
 const LoginDialog: FC<LoginDialogProps> = ({ onClose }) => {
   const { t } = useTranslation(['common', 'home']);
+  const { showSnackbar } = useSnackbarAtom();
 
   const loginSchema = useMemo(
     () =>
@@ -42,9 +46,22 @@ const LoginDialog: FC<LoginDialogProps> = ({ onClose }) => {
   });
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
-    void handleSubmit((values) => {
-      // TODO: call api to login
-      console.log(values);
+    void handleSubmit(async ({ email, password }) => {
+      try {
+        await signIn(email, password);
+        showSnackbar({
+          message: t('home:validation.loginSuccessfully'),
+        });
+      } catch (err) {
+        showSnackbar({
+          severity: 'error',
+          message:
+            err instanceof FirebaseError &&
+            err.code === AuthErrorCode.INVALID_LOGIN_CREDENTIALS
+              ? t('home:validation.invalidLoginCredentials')
+              : t('common:validation.unknownError'),
+        });
+      }
     })(event);
   };
 

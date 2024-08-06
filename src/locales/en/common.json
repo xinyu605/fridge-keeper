@@ -1,1 +1,6 @@
-{ "button": { "cancel": "Cancel", "confirm": "Confirm" } }
+{
+  "button": { "cancel": "Cancel", "confirm": "Confirm" },
+  "validation": {
+    "unknownError": "Unknown Error. Retry later or contact the web manager."
+  }
+}

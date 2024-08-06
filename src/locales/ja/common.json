@@ -1,1 +1,6 @@
-{ "button": { "cancel": "キャンセル", "confirm": "確認する" } }
+{
+  "button": { "cancel": "キャンセル", "confirm": "確認する" },
+  "validation": {
+    "unknownError": "不明なエラーです。しばらくしてから再試行するか、Web マネージャーに問い合わせてください。"
+  }
+}
