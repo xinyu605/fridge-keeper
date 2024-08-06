@@ -1,7 +1,7 @@
 'use client';
 
 import { type FC, type ReactNode } from 'react';
-import { createInstance, type Resource } from 'i18next';
+import { type Resource, createInstance } from 'i18next';
 
 import { I18nextProvider } from 'react-i18next';
 
