@@ -5,6 +5,8 @@
   "title": "冰箱管家",
   "validation": {
     "email": "無效的 Email 格式",
+    "invalidLoginCredentials": "登入失敗！無效的 email 或密碼。",
+    "loginSuccessfully": "登入成功！",
     "password": "密碼必須包含至少 8 個字元"
   }
 }
