@@ -50,7 +50,7 @@ const LoginDialog: FC<LoginDialogProps> = ({ onClose }) => {
       try {
         await signIn(email, password);
         showSnackbar({
-          message: t('home:validation.loginSuccessfully'),
+          message: t('home:validation.signInSuccessfully'),
         });
       } catch (err) {
         showSnackbar({
@@ -70,7 +70,7 @@ const LoginDialog: FC<LoginDialogProps> = ({ onClose }) => {
       disabledSubmit={!isValid}
       form
       open
-      title={t('home:login')}
+      title={t('home:signIn')}
       onClose={onClose}
       onSubmit={onSubmit}
     >

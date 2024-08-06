@@ -53,7 +53,7 @@ const StyledRoot: FC<StyledRootProps> = ({ children }) => {
               <div className="flex gap-2 items-center">
                 <ThemeModeSwitch value={mode} onChange={handleChangeMode} />
                 <Button onClick={handleOpenLoginDialog}>
-                  {t('home:login')}
+                  {t('home:signIn')}
                 </Button>
               </div>
             </Toolbar>
