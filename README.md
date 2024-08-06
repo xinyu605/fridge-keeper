@@ -23,3 +23,5 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework which can be composed to build any design, directly in markup
 - [React Hook Form](https://react-hook-form.com/) - Performant, flexible and extensible forms with easy-to-use validation
 - [Zod](https://zod.dev) - TypeScript-first schema validation with static type inference
+- [Jotai](https://jotai.org/) - An atomic approach to global React state management
+- [Firebase](https://firebase.google.com/) - Google's mobile and web app development platform
