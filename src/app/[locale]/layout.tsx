@@ -7,8 +7,9 @@ import '@/styles/globals.css';
 import { type ServerFC } from '@/lib/types';
 import initTranslations from '@/lib/i18n';
 
+import JotaiProvider from '@/modules/globalProviders/JotaiProvider';
 import StyledRoot from '@/app/[locale]/StyledRoot';
-import TransProvider from '@/modules/TransProvider';
+import TransProvider from '@/modules/globalProviders/TransProvider';
 
 export const metadata: Metadata = {
   title: 'Fridge Keeper',
@@ -33,7 +34,9 @@ const RootLayout: ServerFC<RootLayoutProps> = async ({
     >
       <html lang={locale}>
         <AppRouterCacheProvider>
-          <StyledRoot>{children}</StyledRoot>
+          <JotaiProvider>
+            <StyledRoot>{children}</StyledRoot>
+          </JotaiProvider>
         </AppRouterCacheProvider>
       </html>
     </TransProvider>
