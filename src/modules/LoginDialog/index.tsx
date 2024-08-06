@@ -1,6 +1,7 @@
 'use client';
 
 import * as z from 'zod';
+import { AuthErrorCodes } from 'firebase/auth';
 import { type FC, type FormEvent, useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
@@ -9,12 +10,12 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
-import { AuthErrorCode, signIn } from '@/firebase/auth';
 import { FirebaseError } from 'firebase/app';
 import {
   type LoginDialogProps,
   LoginFormData,
 } from '@/modules/LoginDialog/LoginDialog.type';
+import { signIn } from '@/firebase/auth';
 import { useSnackbarAtom } from '@/stores/atoms/snackbar';
 
 import SimpleDialog from '@/modules/SimpleDialog';
@@ -57,7 +58,7 @@ const LoginDialog: FC<LoginDialogProps> = ({ onClose }) => {
           severity: 'error',
           message:
             err instanceof FirebaseError &&
-            err.code === AuthErrorCode.INVALID_LOGIN_CREDENTIALS
+            err.code === AuthErrorCodes.INVALID_LOGIN_CREDENTIALS
               ? t('home:validation.invalidLoginCredentials')
               : t('common:validation.unknownError'),
         });
