@@ -11,6 +11,7 @@ import Toolbar from '@mui/material/Toolbar';
 import { darkTheme, lightTheme } from '@/styles/theme';
 
 import LoginDialog from '@/modules/LoginDialog';
+import Snackbar from '@/modules/Snackbar';
 import ThemeModeSwitch from '@/modules/ThemeSwitch';
 
 interface StyledRootProps extends Readonly<{ children: ReactNode }> {}
@@ -59,6 +60,7 @@ const StyledRoot: FC<StyledRootProps> = ({ children }) => {
           </AppBar>
           {children}
           {openLoginDialog && <LoginDialog onClose={handleCloseLoginDialog} />}
+          <Snackbar />
         </main>
       </body>
     </ThemeProvider>
