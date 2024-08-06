@@ -38,17 +38,7 @@ const SimpleDialog: FC<SimpleDialogProps> = ({
   const { t } = useTranslation(['common']);
 
   const content = (
-    <MuiDialog
-      disableEscapeKeyDown={disableEscapeKeyDown}
-      open={open}
-      PaperProps={{
-        sx: {
-          minWidth: 480,
-          position: 'relative',
-          padding: 2,
-        },
-      }}
-    >
+    <>
       <MuiDialogTitle sx={{ padding: 2 }}>{title}</MuiDialogTitle>
       <IconButton
         size="small"
@@ -84,13 +74,27 @@ const SimpleDialog: FC<SimpleDialogProps> = ({
           {confirmLabel || t('common:button.confirm')}
         </MuiButton>
       </MuiDialogActions>
-    </MuiDialog>
+    </>
   );
 
-  return props.form ? (
-    <DialogForm onSubmit={props.onSubmit}>{content}</DialogForm>
-  ) : (
-    content
+  return (
+    <MuiDialog
+      disableEscapeKeyDown={disableEscapeKeyDown}
+      open={open}
+      PaperProps={{
+        sx: {
+          minWidth: 480,
+          position: 'relative',
+          padding: 2,
+        },
+      }}
+    >
+      {props.form ? (
+        <DialogForm onSubmit={props.onSubmit}>{content}</DialogForm>
+      ) : (
+        content
+      )}
+    </MuiDialog>
   );
 };
 
